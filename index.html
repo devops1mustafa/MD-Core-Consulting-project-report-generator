@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Project Report Generator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark">R</span>
+        <div>
+          <strong>AI Project Report Generator</strong>
+          <span>Client-ready summaries from rough notes</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-button" id="resetBtn" type="button" title="Reset form" aria-label="Reset form">
+          <span class="icon refresh"></span>
+        </button>
+        <button class="primary-button" id="generateBtn" type="button">
+          <span class="icon sparkle"></span>
+          Generate report
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="input-panel" aria-label="Project details form">
+        <div class="panel-title">
+          <h1>Project Details</h1>
+          <p>Enter the basics and rough notes. The report updates into a polished business summary.</p>
+        </div>
+
+        <form id="reportForm">
+          <div class="field-grid">
+            <label>
+              Business name
+              <input id="businessName" name="businessName" type="text" value="Northside Creative Co.">
+            </label>
+            <label>
+              Client name
+              <input id="clientName" name="clientName" type="text" value="GreenLine Market">
+            </label>
+          </div>
+
+          <label>
+            Project title
+            <input id="projectTitle" name="projectTitle" type="text" value="Storefront Website Refresh">
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Project status
+              <select id="status" name="status">
+                <option>Completed</option>
+                <option>In Progress</option>
+                <option>Planning</option>
+                <option>On Hold</option>
+              </select>
+            </label>
+            <label>
+              Report date
+              <input id="reportDate" name="reportDate" type="date">
+            </label>
+          </div>
+
+          <label>
+            Rough project notes
+            <textarea id="notes" name="notes" rows="9">Updated homepage layout, improved mobile navigation, added service pages, replaced outdated images, connected contact form, checked speed and accessibility, client wanted a cleaner professional look, final review completed with only minor text edits.</textarea>
+          </label>
+
+          <label>
+            Outcomes or measurable results
+            <textarea id="outcomes" name="outcomes" rows="4">Website is easier to navigate, service information is clearer, contact requests are simpler for customers, and the business has a more polished online presence.</textarea>
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Next steps
+              <input id="nextSteps" name="nextSteps" type="text" value="Approve final copy and publish the updated pages.">
+            </label>
+            <label>
+              Tone
+              <select id="tone" name="tone">
+                <option>Professional</option>
+                <option>Warm</option>
+                <option>Concise</option>
+                <option>Executive</option>
+              </select>
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section class="report-panel" aria-label="Generated report preview">
+        <div class="report-toolbar">
+          <div>
+            <span class="eyebrow">Generated report</span>
+            <h2 id="previewTitle">Storefront Website Refresh</h2>
+          </div>
+          <div class="tool-actions">
+            <button class="icon-button" id="copyBtn" type="button" title="Copy report" aria-label="Copy report">
+              <span class="icon copy"></span>
+            </button>
+            <button class="icon-button" id="printBtn" type="button" title="Print report" aria-label="Print report">
+              <span class="icon print"></span>
+            </button>
+          </div>
+        </div>
+
+        <article class="report-document" id="reportDocument">
+          <div class="report-cover">
+            <span id="reportBusiness">Northside Creative Co.</span>
+            <strong id="reportProject">Storefront Website Refresh</strong>
+            <small id="reportMeta">Prepared for GreenLine Market · Completed</small>
+          </div>
+
+          <section>
+            <h3>Client Summary</h3>
+            <p id="summaryText"></p>
+          </section>
+
+          <section>
+            <h3>Work Completed</h3>
+            <ul id="workList"></ul>
+          </section>
+
+          <section>
+            <h3>Business Value</h3>
+            <p id="valueText"></p>
+          </section>
+
+          <section>
+            <h3>Recommended Next Steps</h3>
+            <p id="nextStepsText"></p>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Report copied</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
